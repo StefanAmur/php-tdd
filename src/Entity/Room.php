@@ -90,4 +90,9 @@ class Room
 
         return $this;
     }
+
+    function canBook(User $user)
+    {
+        return ($this->getOnlyForPremiumMembers() && $user->getPremiumMember()) || !$this->getOnlyForPremiumMembers();
+    }
 }
